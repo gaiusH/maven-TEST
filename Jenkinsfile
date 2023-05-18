@@ -14,6 +14,15 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/gaiusH/maven-TEST.git'
             }
         }
+        stage ("sonaqube scan"){
+          steps{
+          withSonarQubeEnv('sonar') {
+        sh  'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=gaiusH_geolocation-job'
+
+             }   
+        
+          }
+        }
         stage('Code Build') {
             steps {
                 sh 'mvn clean install package'
