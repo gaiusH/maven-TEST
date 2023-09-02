@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
     registry = '472391956991.dkr.ecr.us-east-1.amazonaws.com/terra-geolocation-ecr-jenkins'
-    registryCredential = 'awscredentials'
+    registryCredential = 'aws credentials'
     dockerimage = ''
   }
     stages {
